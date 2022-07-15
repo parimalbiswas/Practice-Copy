@@ -23,5 +23,6 @@ public class hellow {
         System.out.println(l1);
         System.out.println(f1);
         System.out.println(d1);
+        
     }
 }
