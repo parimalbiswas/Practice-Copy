@@ -53,10 +53,23 @@ public class p1 {
 
 
 
-        int n5 = 11;
-        for (int i = 0; i < n5; i++) {
-            for (int j = 0; j < n5; j++) {
-                if (i==j || i+j==n5-1) {
+        // int n5 = 11;
+        // for (int i = 0; i < n5; i++) {
+        //     for (int j = 0; j < n5; j++) {
+        //         if (i==j || i+j==n5-1 || i==0 ||j==0 || j==n5-1 || i==n5-1) {
+        //             System.out.print("*");
+        //         } else {
+        //             System.out.print(" ");
+        //         }
+        //     }
+        //     System.out.println();
+        // }
+
+
+        int n6 = 20;
+        for (int i = 0; i < n6; i++) {
+            for (int j = 0; j < n6; j++) {
+                if (i==j || i+j==n6-1 || i==0 ||j==0 || j==n6-1 || i==n6-1 || i+j==(n6-1)/2) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
@@ -64,6 +77,10 @@ public class p1 {
             }
             System.out.println();
         }
+
+
+
+
 
     }
 }
