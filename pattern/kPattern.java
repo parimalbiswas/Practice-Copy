@@ -42,11 +42,28 @@ public class kPattern {
 
         System.out.println();
 
-        int n6 = 4;
+        int n6 = 5;
         for (int row = 1; row <= n6; row++) {
-            for (int j = 1; j <= n6 - i + 1; j++) {
-
+            for (int j = 1; j <= n6 - row + 1; j++) {
+                System.out.print(j + " ");
             }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        int n7 = 5;
+        int count = 1;
+        for (int row = 1; row <= n7; row++) {
+            for (int j = 1; j <= row; j++) {
+                int sum = row + j;
+                if (sum % 2 == 0) {
+                    System.out.print("1 ");
+                } else {
+                    System.out.print("0 ");
+                }
+            }
+            System.out.println();
         }
 
     }
