@@ -23,4 +23,3 @@ class Alien {
 }
 
 
-video 8  time 35:36

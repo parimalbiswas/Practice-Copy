@@ -1,6 +1,3 @@
-/**
- * 7
- */
 
 // Encapsulation Example Start
 public class JavaCls7 {
