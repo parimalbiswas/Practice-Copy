@@ -1,0 +1,40 @@
+body{
+    margin: auto;
+    text-align: center;
+   
+}
+
+#container{
+    display: flex;
+    margin: auto;
+    gap: 60px;
+    width: fit-content;
+    text-align: center;
+}
+
+#form{
+    display: grid;
+    gap: 20px;
+    height: 40vh;
+    margin-top: 20px;
+    background-color: rgba(220, 20, 60, 0.656);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+th, td {
+    border:1px solid black;
+    padding: 8px;
+  }
+  .thead{
+    background-color: teal;
+    color: white;
+    font-size: 18px;
+  
+  }
+
+  #tbody{
+    background-color: antiquewhite;
+  }
+
+

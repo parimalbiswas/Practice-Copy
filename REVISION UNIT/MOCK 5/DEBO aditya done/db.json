@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "country": "india",
+      "city": "Delhi",
+      "population": 123445
+    },
+    {
+      "id": 2,
+      "country": "india",
+      "city": "Delhi",
+      "population": 123445
+    },
+    {
+      "country": "india",
+      "city": "Pune",
+      "population": "1234567",
+      "id": 3
+    },
+    {
+      "country": "America",
+      "city": "South 24 paragana",
+      "population": "a1212",
+      "id": 4
+    },
+    {
+      "country": "America",
+      "city": "South 24 paragana",
+      "population": "1212",
+      "id": 5
+    },
+    {
+      "country": "india",
+      "city": "1",
+      "population": "1111",
+      "id": 6
+    },
+    {
+      "country": "bangladesh",
+      "city": "South 24 paragana",
+      "population": "1",
+      "id": 7
+    }
+  ]
+}
