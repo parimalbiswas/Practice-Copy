@@ -1,0 +1,52 @@
+# M5R3
+
+- Use only Javascript along with HTML & CSS to build this application.
+- Create a form which takes following information from the user
+    - Country (Select tag)
+    - City
+    - Population
+- On form submit, post data to JSON server.
+- Use JSON server to manage the data (using local storage or dummy object data will lead to disqualification)
+- Fetch this data from JSON server and display in form of table as shown below
+
+![Screenshot 2022-08-10 at 9.01.24 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/048f0384-a6cf-4a4d-9bb9-2e7e42ede90b/Screenshot_2022-08-10_at_9.01.24_PM.png)
+
+- Users should be able to filter/sort the tabular data → create select tag for filtering and sorting
+    - Filter by country
+    - Sort by ascending or descending population
+    - Delete a city
+        - when deleting a city, delete city from JSON data and display the updated data in table.
+
+### Bonus:
+
+- When user clicks on edit, user should be able to edit/change population of particular city in JSON data (you can use modal for this) and display updated data in table.
+
+### Submission
+
+- Please submit deployed link and Github link of code.
+- Deploy JSON server too.
+- Please double check if deployed version works or not (run deployed version on your laptop and then submit it)
+- Any issues in deployed link, will be considered null and void.
+- Please verify your submissions are correct.
+- Make sure you follow all instructions carefully.
+- Submit before deadline.
+
+### Rubrics / Criteria to be judged upon
+
+- CRUD Operations
+- JSON server
+- Fetch
+- Promises
+- UI
+- Code cleanliness
+- Usage of Javascript (using react will lead to disqualification)
+
+**Time limit** : `150 mins`
+
+
+
+
+
+
+
+https://zealous-frill-c9c.notion.site/M5R3-45a3b119c3f746f695016e05bd1bc6f3

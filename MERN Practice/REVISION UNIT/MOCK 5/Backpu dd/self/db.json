@@ -1,0 +1,16 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "country": "india",
+        "city": "Delhi",
+        "population": "123445"
+      },
+      {
+        "id": 2,
+        "country": "india",
+        "city": "Delhi",
+        "population": "123445"
+      }
+    ]
+  }

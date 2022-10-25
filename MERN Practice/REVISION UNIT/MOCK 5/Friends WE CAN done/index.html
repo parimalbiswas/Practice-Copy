@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Country Population calculations</h1>
+
+  <div id="container">
+
+
+
+    <form action="" id="form">
+
+
+      <div>
+
+        <label for="">Country : </label>
+        <select name="" id="country" onChange="update()">
+          <option value="india">India</option>
+          <option value="America">America</option>
+          <option value="bangladesh">bangladesh</option>
+          <option value="landan">landan</option>
+          <option value="srilanka">Sri Lanka</option>
+          <option value="nepal">nepal</option>
+          <option value="japan">Japan</option>
+          <option value="vhutan">vhutan</option>
+        </select>
+      </div>
+
+      <input type="text" placeholder="City" id="city" onChange="update()">
+      <input type="text" placeholder="Population" id="population" onChange="update()">
+
+
+      <input type="submit" id="submit">
+    </form>
+
+
+
+    <div id="show">
+
+      <div id="sort">
+        <select name="selectByPopulation" id="sortPopulation" onchange="sortP()">
+          <option value="..">Sort by Population</option>
+          <option value="accending">Accending</option>
+          <option value="decending">Decending</option>
+        </select>
+      </div>
+
+
+      <table style="width:100%">
+
+
+        <thead class="thead">
+
+          <tr>
+            <th id="id">ID</th>
+            <th id="country">Country</th>
+            <th id="city">City</th>
+            <th id="population">Population</th>
+            <th id="edit">Edit</th>
+            <th id="delete">Delete</th>
+          </tr>
+
+        </thead>
+        <tbody id="tbody">
+          <!-- <tr>
+                  <td>1</td>
+                  <td>India</td>
+                  <td>Delhi</td>
+                  <td>123456</td>
+                  <td>
+                    <button>Edit</button>
+                  </td>
+                  <td>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                  <td>33333</td>
+                  <td>
+                    <button>Edit</button>
+                  </td>
+                  <td>
+                    <button>Delete</button>
+                  </td>
+                </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script src="./script.js"></script>

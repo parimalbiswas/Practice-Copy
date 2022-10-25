@@ -1,0 +1,100 @@
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 50px; */
+    /* margin: 50px; */
+    border: 1px solid red;
+}
+
+.main_container>div {
+    margin: 10px;
+
+}
+
+#input_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: teal;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid blue;
+}
+
+#SearchSortFilter div {
+    display: flex;
+    /* grid-template-columns: repeat(1, 1fr); */
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    /* background-color: teal; */
+
+}
+
+#SearchSortFilter {
+    background-color: teal;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid blue;
+}
+
+#displayDataContainer {
+    /* padding: 20px; */
+    margin: 5px;
+    border: 2px solid brown;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.thead {
+    background-color: teal;
+    
+    color: white;
+
+}
+
+tr,
+td,
+th {
+    padding: 10px;
+    margin: 20px;
+    border: 2px solid black;
+}
+
+.pagination {
+    display: flex;
+    /* justify-content: center; */
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid green;
+
+}
+
+#previous {
+    background-color: red;
+    color: white;
+    margin: 10px;
+}
+
+#next {
+    background-color: greenyellow;
+    /* color: white; */
+    margin: 10px;
+}
+
+
+
+.edit_section{
+    padding:20px;
+    border: 2px dashed blue;
+    margin: 20px;
+    display: none;
+}
+
+

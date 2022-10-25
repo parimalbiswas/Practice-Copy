@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+
+    <!-- <h1>Contry Populations Calculator</h1> -->
+    <!-------------------------------------------------------------------- Input Data --------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------ Input Data
+    --------------------------------------------------------------- -->
+    <div class="main_container">
+        <div>
+            <form action="" id="input_form">
+                <label for="">COUNTRY SELECT</label>
+                <select title="country" id="country">
+                    <option value="india">India</option>
+                    <option value="BanglaDesh">BanglaDesh</option>
+                    <option value="pakistan">pakistan</option>
+                    <option value="srilanka">srilanka</option>
+                    <option value="japan">japan</option>
+                    <option value="uae">uae</option>
+                    <option value="usa">usa</option>
+                </select>
+                <input placeholder="city" type="text" id="city">
+                <input placeholder="populations" type="number" id="population">
+                <input type="submit" value="submit" style="background-color: greenyellow">
+            </form>
+        </div>
+
+        <!------------------------------------------------------ Search Sort Filter Data ---------------------------------------------------------- -->
+        <!-- ---------------------------------------------------- Search Sort Filter Data
+        ---------------------------------------------------------- -->
+
+        <div id="SearchSortFilter">
+            <div>
+                <select title="filterbyCountery" id="filterbyCountery">
+
+                </select>
+            </div>
+            <div>
+                <select title="sortbyPopulation" id="sortbyPopulation">
+                    <option value="Sodt_By_Population">Sot By Population</option>
+                    <option value="assending">assending</option>
+                    <option value="decending">decending</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" placeholder="Search Here">
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------------------------------------------- Display Data --------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------ Display Data
+        --------------------------------------------------------------- -->
+
+    <div id="displayDataContainer">
+        <table>
+            <thead class="thead">
+                <tr>
+                    <th id="id">ID</th>
+                    <th id="country">country</th>
+                    <th id="city">city</th>
+                    <th id="Population">Population</th>
+                    <th id="edit">edit</th>
+                    <th id="delete">delete</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>India</td>
+                    <td>Delhi</td>
+                    <td>123456</td>
+                    <td><button style="background-color: yellow">Edit</button></td>
+                    <td><button style="background-color: red">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mexico</td>
+                    <td>Sanfako</td>
+                    <td>123456</td>
+                    <td><button style="background-color: yellow">Edit</button></td>
+                    <td><button style="background-color: red">Delete</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="previous">prev</button>
+            <h3>1</h3>
+            <button id="next">next</button>
+        </div>
+
+        <div class="edit_section">
+            Edit section 
+            
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="./index.js"></script>
