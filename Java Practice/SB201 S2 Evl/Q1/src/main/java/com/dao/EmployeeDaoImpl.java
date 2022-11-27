@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -51,14 +52,44 @@ public class EmployeeDaoImpl implements EmployeeDao
 	{
 		EntityManager em1 = EMUtil.provideEntityManager();
 
-		Employee employee = em1.find(Employee.class, empId);
-		Department department = em1.find(Department.class, deptId);
-
-		if (employee != null && department != null)
+		try
 		{
-			String jpql = "select s";
+			Employee employee = em1.find(Employee.class, empId);
+			Department department = em1.find(Department.class, deptId);
 
-			Query query = em1.createQuery(jpql);
+			if (employee == null)
+			{
+				throw new EmployeeException("Employee Not Found XX");
+			}
+			if (department == null)
+			{
+				throw new DepartmentException("Department Not Found XX");
+			}
+
+			if (employee != null && department != null)
+			{
+				String jpql = "UPDATE Employee  SET department_deptId = :did where empId=:eid";
+
+				Query query = em1.createQuery(jpql);
+				query.setParameter("did", deptId);
+				query.setParameter("eid", empId);
+
+				em1.getTransaction().begin();
+
+				int x = query.executeUpdate();
+				System.out.println(x + " Record Updated Succsfully...");
+
+				em1.getTransaction().commit();
+				em1.close();
+//				
+//
+//				em1.persist(employee);
+
+			}
+		}
+		catch (Exception e)
+		{
+			throw new EmployeeException(e.getMessage());
 		}
 
 	}
@@ -66,8 +97,43 @@ public class EmployeeDaoImpl implements EmployeeDao
 	@Override
 	public List<Employee> getAllEmployeeWithDeptName(String deptName) throws EmployeeException
 	{
-		// TODO Auto-generated method stub
-		return null;
+		List<Employee> employees = new ArrayList<>();
+
+		EntityManager em1 = EMUtil.provideEntityManager();
+
+		try
+		{
+			String jpql = "select d.deptId from Department d where d.deptName = :dname";
+
+			Query query = em1.createQuery(jpql);
+			query.setParameter("dname", deptName);
+
+			int xid = (int) query.getSingleResult();
+			System.out.println("id =========================> " + xid);
+
+//			if (xid > 0)
+//			{
+			String jpql2 = "select e from Employee e where e.department_deptId =:xid";
+
+			Query query2 = em1.createQuery(jpql2);
+			query2.setParameter("xid", xid);
+
+			employees = query2.getResultList();
+			employees.forEach(s -> System.out.println(s));
+
+			if (employees.size() == 0)
+			{
+				throw new EmployeeException("No Employee Found XX");
+			}
+
+//			}
+		}
+		catch (Exception e)
+		{
+			throw new EmployeeException(e.getMessage());
+		}
+
+		return employees;
 	}
 
 	@Override
