@@ -22,6 +22,7 @@ public class AddEmployee_usecase
 		employee2.setEmpName("Gupta");
 		employee2.setSalary(23000);
 		employee2.setAddress(address2);
+
 		// employee.setDepartment(null);
 
 		EmployeeDao dao = new EmployeeDaoImpl();

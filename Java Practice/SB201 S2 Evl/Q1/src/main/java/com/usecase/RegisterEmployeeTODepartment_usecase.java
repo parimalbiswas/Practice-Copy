@@ -13,7 +13,7 @@ public class RegisterEmployeeTODepartment_usecase
 		EmployeeDao dao = new EmployeeDaoImpl();
 		try
 		{
-			dao.registerEmployeeTODepartment(5, 3);
+			dao.registerEmployeeTODepartment(6, 3);
 		}
 		catch (EmployeeException em)
 		{

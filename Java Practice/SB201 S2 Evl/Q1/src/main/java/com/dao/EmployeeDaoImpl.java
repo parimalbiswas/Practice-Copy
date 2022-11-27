@@ -111,22 +111,22 @@ public class EmployeeDaoImpl implements EmployeeDao
 			int xid = (int) query.getSingleResult();
 			System.out.println("id =========================> " + xid);
 
-//			if (xid > 0)
-//			{
-			String jpql2 = "select e from Employee e where e.department_deptId =:xid";
-
-			Query query2 = em1.createQuery(jpql2);
-			query2.setParameter("xid", xid);
-
-			employees = query2.getResultList();
-			employees.forEach(s -> System.out.println(s));
-
-			if (employees.size() == 0)
+			if (xid > 0)
 			{
-				throw new EmployeeException("No Employee Found XX");
-			}
+				String jpql2 = "from Employee where department_deptId=:xid";
 
-//			}
+				Query query2 = em1.createQuery(jpql2);
+				query2.setParameter("xid", xid);
+
+				employees = query2.getResultList();
+				// employees.forEach(s -> System.out.println(s));
+
+				if (employees.size() == 0)
+				{
+					throw new EmployeeException("No Employee Found XX");
+				}
+
+			}
 		}
 		catch (Exception e)
 		{
@@ -139,8 +139,35 @@ public class EmployeeDaoImpl implements EmployeeDao
 	@Override
 	public Department getDepartmentDetailsByEmployeeId(int empId) throws DepartmentException
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Department department = null;
+
+		EntityManager em1 = EMUtil.provideEntityManager();
+
+		try
+		{
+			Employee employee = em1.find(Employee.class, empId);
+
+			System.out.println(employee.getDepartment().getDeptId());
+
+			String jpql1 = "select d from Department d where d.deptId=:did";
+
+			Query query = em1.createQuery(jpql1);
+			query.setParameter("did", employee.getDepartment().getDeptId());
+
+			department = (Department) query.getSingleResult();
+
+			if (department == null)
+			{
+				throw new DepartmentException("Department Not Found XXXX");
+			}
+
+		}
+		catch (Exception e)
+		{
+			throw new DepartmentException(e.getMessage());
+		}
+
+		return department;
 	}
 
 }
