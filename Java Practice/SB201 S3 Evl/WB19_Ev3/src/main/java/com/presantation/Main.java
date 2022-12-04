@@ -12,6 +12,7 @@ public class Main
 		ApplicationContext ctx1 = new AnnotationConfigApplicationContext(AppConfig.class);
 
 		Presentation presentation = ctx1.getBean("presentation", Presentation.class);
+
 		System.out.println("======================================");
 		presentation.insertProduct();
 		System.out.println("======================================");
