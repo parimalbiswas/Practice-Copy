@@ -1,6 +1,7 @@
 package com.presantation;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,9 @@ public class Presentation
 	{
 		try
 		{
-			Product product = new Product("Chini", 5, 1000);
+			Scanner scanner = new Scanner(System.in);
+
+			Product product = new Product(scanner.next(), scanner.nextInt(), scanner.nextInt());
 			boolean yesno = productserviceDAOImpl.addProduct(product);
 
 			if (yesno == true)

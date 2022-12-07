@@ -1,0 +1,223 @@
+mysql> use world;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |
+| country         |
+| countrylanguage |
++-----------------+
+3 rows in set (0.01 sec)
+
+mysql> drop database sakila, nitin;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', nitin' at line 1
+mysql> drop databases sakila, nitin;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases sakila, nitin' at line 1
+mysql> drop database sakila;
+Query OK, 23 rows affected (0.24 sec)
+
+mysql> use org;
+Database changed
+mysql> create database HappyHour;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use HappyHour;
+Database changed
+mysql> create table Bank(int accno primary key auto_increment, name varchar(20) NOT NULL, opendate date, age int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int accno primary key auto_increment, name varchar(20) NOT NULL, opendate date, ' at line 1
+mysql> create table Bank(accno int  primary key auto_increment, name varchar(20) NOT NULL, opendate date, bal int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> alter table Bank modify bal decimal(8,3);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc bank;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| accno    | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(20)  | NO   |     | NULL    |                |
+| opendate | date         | YES  |     | NULL    |                |
+| bal      | decimal(8,3) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into bank(name,opendate,bal) values("Parimal","1995-12-12",2500.233);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bank(name,opendate,bal) values("Nilesh","1993-12-19",3300.233);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from bank;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     1 | Parimal | 1995-12-12 | 2500.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
++-------+---------+------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into bank(name,opendate,bal) values("Ratan","2010-12-19",5500.233);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bank(name,opendate,bal) values("Arjun","2012-07-17",7400.233);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bank(name,opendate,bal) values("Albert","2005-01-23",8900.221);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from bank;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     1 | Parimal | 1995-12-12 | 2500.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
+|     3 | Ratan   | 2010-12-19 | 5500.233 |
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     5 | Albert  | 2005-01-23 | 8900.221 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> alter table bank add faltu varchar(20);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+-------+
+| accno | name    | opendate   | bal      | faltu |
++-------+---------+------------+----------+-------+
+|     1 | Parimal | 1995-12-12 | 2500.233 | NULL  |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 | NULL  |
+|     3 | Ratan   | 2010-12-19 | 5500.233 | NULL  |
+|     4 | Arjun   | 2012-07-17 | 7400.233 | NULL  |
+|     5 | Albert  | 2005-01-23 | 8900.221 | NULL  |
++-------+---------+------------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table bank rename age int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int' at line 1
+mysql> alter table bank rename column age int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int' at line 1
+mysql> alter table bank rename column faltu to  age int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int' at line 1
+mysql> alter table bank rename column faltu to  age;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+------+
+| accno | name    | opendate   | bal      | age  |
++-------+---------+------------+----------+------+
+|     1 | Parimal | 1995-12-12 | 2500.233 | NULL |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 | NULL |
+|     3 | Ratan   | 2010-12-19 | 5500.233 | NULL |
+|     4 | Arjun   | 2012-07-17 | 7400.233 | NULL |
+|     5 | Albert  | 2005-01-23 | 8900.221 | NULL |
++-------+---------+------------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> alter table bank modify age int;
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+------+
+| accno | name    | opendate   | bal      | age  |
++-------+---------+------------+----------+------+
+|     1 | Parimal | 1995-12-12 | 2500.233 | NULL |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 | NULL |
+|     3 | Ratan   | 2010-12-19 | 5500.233 | NULL |
+|     4 | Arjun   | 2012-07-17 | 7400.233 | NULL |
+|     5 | Albert  | 2005-01-23 | 8900.221 | NULL |
++-------+---------+------------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> desc bank;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| accno    | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(20)  | NO   |     | NULL    |                |
+| opendate | date         | YES  |     | NULL    |                |
+| bal      | decimal(8,3) | YES  |     | NULL    |                |
+| age      | int          | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table bank drop column age;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     1 | Parimal | 1995-12-12 | 2500.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
+|     3 | Ratan   | 2010-12-19 | 5500.233 |
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     5 | Albert  | 2005-01-23 | 8900.221 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update bank set bal=bal+500 where name LIKE "_a%";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     1 | Parimal | 1995-12-12 | 3000.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
+|     3 | Ratan   | 2010-12-19 | 6000.233 |
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     5 | Albert  | 2005-01-23 | 8900.221 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update bank set bal=bal-1000 where opendate BETWEEN "1994-12-19" AND "2009-12-30");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> update bank set bal=bal-1000 where opendate BETWEEN "1994-12-19" AND "2009-12-30";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from bank;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     1 | Parimal | 1995-12-12 | 2000.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
+|     3 | Ratan   | 2010-12-19 | 6000.233 |
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     5 | Albert  | 2005-01-23 | 7900.221 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from bank ORDER BY bal DESc;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     5 | Albert  | 2005-01-23 | 7900.221 |
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     3 | Ratan   | 2010-12-19 | 6000.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
+|     1 | Parimal | 1995-12-12 | 2000.233 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from bank ORDER BY opendate DESc;
++-------+---------+------------+----------+
+| accno | name    | opendate   | bal      |
++-------+---------+------------+----------+
+|     4 | Arjun   | 2012-07-17 | 7400.233 |
+|     3 | Ratan   | 2010-12-19 | 6000.233 |
+|     5 | Albert  | 2005-01-23 | 7900.221 |
+|     1 | Parimal | 1995-12-12 | 2000.233 |
+|     2 | Nilesh  | 1993-12-19 | 3300.233 |
++-------+---------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql>
