@@ -1,8 +1,5 @@
-package comparable;
+package comparableMethod;
 
-/**
- * Student
- */
 public class Student {
 
     private int roll;
@@ -45,7 +42,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [roll=" + roll + ", name=" + name + ", marks=" + marks + "]";
+        return "Student{" +
+                "roll=" + roll +
+                ", name='" + name + '\'' +
+                ", marks=" + marks +
+                '}';
     }
-
 }
