@@ -1,15 +1,10 @@
 public class StringOBJECTnSTRINGclass {
     public static void main(String[] args) {
-        String str1= "jhjdcf";
+        String str1 = "aaa";
+        System.out.println(str1.equals("aaa"));
 
+        StringBuilder sb = new StringBuilder("aaa");
+        System.out.println(sb.equals("aaa"));
 
-
-        str1.toString();
-
-
-
-
-        Integer i1=20;
-        i1.toString();
     }
 }
