@@ -1,0 +1,12 @@
+package com.masai.exception;
+
+public class CartException extends Exception {
+
+	public CartException() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public CartException(String msg) {
+		super(msg);
+	}
+}
