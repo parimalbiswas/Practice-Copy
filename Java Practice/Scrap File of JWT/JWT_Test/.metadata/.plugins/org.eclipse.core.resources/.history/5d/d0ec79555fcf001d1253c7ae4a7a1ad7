@@ -16,6 +16,10 @@ import com.parimal.service.CustomerService;
 @RestController
 @RequestMapping("/customers")
 public class CustomerController
+{
+
+	@Autowired
+	private CustomerService customerService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
