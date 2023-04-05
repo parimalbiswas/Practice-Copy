@@ -1,0 +1,94 @@
+List<List<String>> data = new ArrayList<>();
+data.add(Arrays.asList("foo", "bar"));
+data.add(Arrays.asList("baz", "qux"));
+
+
+
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AuthController {
+    
+    private static final String SECRET_KEY = "mysecretkey";
+    
+    @PostMapping("/login")
+    public String login(@RequestBody UserCredentials credentials) {
+        if (isValidCredentials(credentials)) {
+            return Jwts.builder()
+                .setSubject(credentials.getUsername())
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .compact();
+        } else {
+            throw new RuntimeException("Invalid credentials");
+        }
+    }
+    
+    private boolean isValidCredentials(UserCredentials credentials) {
+        // You can add your own validation logic here
+        return "admin".equals(credentials.getUsername()) && "password".equals(credentials.getPassword());
+    }
+    
+    private static class UserCredentials {
+        private String username;
+        private String password;
+        
+        // Getters and setters omitted for brevity
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DataController {
+    
+    private static final String SECRET_KEY = "mysecretkey";
+    private static final String AUTH_HEADER_PREFIX = "Bearer ";
+    
+    @GetMapping("/data")
+    public List<List<String>> getData(@RequestHeader("Authorization") String authHeader) {
+        if (!authHeader.startsWith(AUTH_HEADER_PREFIX)) {
+            throw new RuntimeException("Missing authorization header");
+        }
+        
+        String token = authHeader.substring(AUTH_HEADER_PREFIX.length());
+        Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+        String username = claims.getSubject();
+        
+        if (!"admin".equals(username)) {
+            throw new RuntimeException("Unauthorized");
+        }
+        
+        return getDataFromDb(); // Replace this with your own data retrieval logic
+    }
+    
+    private List<List<String>> getDataFromDb() {
+        return data;
+    }
+}
+
+
+
+{
+    "username": "admin",
+    "password": "password"
+}
+``
