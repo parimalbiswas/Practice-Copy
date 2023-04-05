@@ -1,0 +1,9 @@
+arsfqoo0.up.railway.app
+
+
+DB_HOST=containers-us-west-160.railway.app
+DB_NAME=railway
+DB_PORT=7472
+DB_USERNAME=root
+DB_PASSWORD=tOghgcdK2oB7GXSVIkdm
+
